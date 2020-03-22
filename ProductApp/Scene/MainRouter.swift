@@ -9,6 +9,7 @@
 import UIKit
 
 class MainRouter {
+
     class var storyboard: UIStoryboard  {
         UIStoryboard(name: "Main", bundle: nil)
     }
@@ -23,6 +24,7 @@ class MainRouter {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ItemViewController") as? ItemViewController
         vc?.imageNames = dataSource
-        viewController.present(vc!, animated: true, completion: nil)
+      let root = SceneDelegate.window?.rootViewController as? UINavigationController
+        root?.pushViewController(vc!, animated: true)
     }
 }
